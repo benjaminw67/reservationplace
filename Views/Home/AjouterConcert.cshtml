@@ -1,0 +1,17 @@
+<!-- Formulaire inutile pour le moment. Cliquer sur "Ajouter" appelle la méthode "AjouterConcert()" de HomeController et entre des données choisies dans la base de données -->
+
+@{Html.BeginForm("NouveauConcert", "Home");}
+@Html.Label("nom", "Nom de l'événement :")
+@Html.TextBox("nom")<br>
+@Html.Label("artiste", "Nom de l'artiste :")
+@Html.TextBox("artiste")<br>
+@Html.Label("dateConcert", "Date du concert (YYYY/MM/DD/hh/mm/ss) :")
+@Html.TextBox("dateConcert")<br>
+@Html.Label("lieu", "Lieu :")
+@Html.TextBox("lieu")<br>
+@Html.Label("salle", "Salle")
+@Html.TextBox("salle")<br>
+@Html.Label("nombreDePlaces", "Nombre de places disponibles :")
+@Html.TextBox("nombreDePlaces")<br>
+<input type="submit" value="Ajouter" />
+@{Html.EndForm();}

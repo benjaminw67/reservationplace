@@ -1,0 +1,38 @@
+<!-- Petite fonction Javascript qui permet d'actualiser le lien du bouton "Rechercher" en fonction du lieu saisi -->
+<script type="text/javascript">
+    function dynamicLink(){
+        var arg = document.getElementById('lieu').value;
+        document.getElementById('dynamic').href += arg;
+    }
+</script>
+
+<!-- Affichage de tous les concerts ou recherche par lieu -->
+<table style="margin: 0 auto; border-collapse: separate; border-spacing: 25px; border-style: dotted;">
+    <tr>
+        <th>Nom</th>
+        <th>Artiste</th>
+        <th>Date</th>
+        <th>Lieu</th>
+        <th>Salle</th>
+        <th>Nombre de places restantes</th>
+    </tr>
+
+    @foreach (ReservationPlace.Models.Concert concert in ViewBag.Concerts as List<ReservationPlace.Models.Concert>)
+        {
+            <tr>
+                <td>@concert.Nom</td>
+                <td>@concert.Artiste</td>
+                <td>@concert.DateConcert.ToString("g")</td>
+                <td>@concert.Lieu</td>
+                <td>@concert.Salle</td>
+                <td>@concert.NombreDePlaces</td>
+            </tr>
+        }   
+</table>
+
+<br><br><br><br><br><br><br>
+<!-- Recherche par lieu -->
+@Html.Label("lieu", "Effectuer une recherche par lieu : ")
+@Html.TextBox("lieu")
+<a href="/Home/ListeConcerts/" id="dynamic" onclick="dynamicLink();">Rechercher</a>
+
